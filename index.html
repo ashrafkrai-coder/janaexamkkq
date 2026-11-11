@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#5b5bf0">
+<title>Penjana Soalan KKQ</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hero">
+    <div class="top">
+      <div class="logo">📖</div>
+      <span id="net" class="badge">Dalam talian</span>
+    </div>
+    <h1>Penjana Soalan KKQ</h1>
+    <p>60 soalan objektif &bull; 5 bidang &times; 12</p>
+  </div>
+
+  <div class="wrap">
+   <div class="col">
+    <div class="sec first">
+      <h2>Pilih Tingkatan</h2>
+      <div class="levels" id="levels"></div>
+      <div class="note" id="splitNote"></div>
+    </div>
+
+    <div class="sec">
+      <h2>Agihan Bidang <span class="pill" id="total">60</span>
+        <button id="reload" class="link" type="button">muat semula</button></h2>
+      <div class="card" id="bidang">Memuatkan...</div>
+    </div>
+   </div>
+
+   <div class="col">
+    <div class="sec first">
+      <h2>Tetapan</h2>
+      <div class="card">
+        <div class="sw"><div><b>Kacau pilihan A–D</b><small>Susunan jawapan diubah rawak</small></div>
+          <label class="tg"><input type="checkbox" id="shufOpt" checked><span></span></label></div>
+        <div class="sw"><div><b>Kacau susunan soalan</b><small>Mati: soalan dikumpul ikut bidang</small></div>
+          <label class="tg"><input type="checkbox" id="shufOrd"><span></span></label></div>
+        <div class="sw"><div><b>Jana skema jawapan</b><small>Google Doc berasingan</small></div>
+          <label class="tg"><input type="checkbox" id="makeKey" checked><span></span></label></div>
+        <div class="sw"><div><b>Simpan juga PDF</b><small>Salinan PDF dalam Drive</small></div>
+          <label class="tg"><input type="checkbox" id="makePdf"><span></span></label></div>
+      </div>
+    </div>
+
+    <button class="cta" id="go" type="button"><span class="spin" id="spin"></span><span id="goTxt">Jana Google Doc</span></button>
+    <div class="err" id="err"></div>
+
+    <div class="card result" id="result">
+      <h3>✓ Doc siap dijana</h3>
+      <div class="meta" id="meta"></div>
+      <div id="links"></div>
+    </div>
+   </div>
+  </div>
+
+<button id="install" class="install" hidden type="button">Pasang aplikasi</button>
+<script src="app.js"></script>
+</body>
+</html>

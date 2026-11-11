@@ -1,0 +1,16 @@
+{
+  "name": "Penjana Soalan KKQ",
+  "short_name": "KKQ",
+  "description": "Jana 60 soalan objektif KKQ daripada bank soalan Google Sheet.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f7fd",
+  "theme_color": "#5b5bf0",
+  "lang": "ms",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
