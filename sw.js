@@ -1,4 +1,4 @@
-const CACHE = 'kkq-v5';
+const CACHE = 'kkq-v6';
 const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'manifest.json', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', e => {
