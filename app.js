@@ -124,6 +124,13 @@ $('go').onclick = async () => {
   }
 };
 
+// ---------- Tetapan ----------
+$('gear').onclick = () => {
+  const s = $('settings');
+  s.hidden = !s.hidden;
+  $('gear').setAttribute('aria-expanded', String(!s.hidden));
+};
+
 // ---------- PWA ----------
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 

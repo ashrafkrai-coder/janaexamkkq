@@ -16,7 +16,17 @@
         display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
   .hero h1{margin:0;font-size:17px;font-weight:700;letter-spacing:.2px}
   .hero p{margin:4px 0 0;opacity:.85;font-size:12px}
-  .hero p.tagline{opacity:.7;font-size:11px;font-style:italic;margin-top:6px}
+  .foot{margin:0 12px;padding:16px 0 18px;text-align:center;border-top:1px solid #e3e5ee;
+    color:#9096a8;font-size:11px;font-weight:500;letter-spacing:.4px}
+  .gear{display:flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;border-radius:50%;
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;cursor:pointer;
+    transition:background .2s,transform .2s,box-shadow .2s}
+  .gear svg{transition:transform .5s cubic-bezier(.4,0,.2,1)}
+  .gear:hover{background:rgba(255,255,255,.3);box-shadow:0 4px 12px rgba(20,26,51,.2)}
+  .gear:hover svg,.gear[aria-expanded=true] svg{transform:rotate(90deg)}
+  .gear[aria-expanded=true]{background:#fff;color:var(--a);border-color:#fff}
+  .gear:active{transform:scale(.92)}
+  [hidden]{display:none!important}
   .wrap{padding:14px 12px 18px}
   .sec{margin-top:16px}
   .sec h2{font-size:11px;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);margin:0 4px 8px;font-weight:700}
@@ -82,9 +92,8 @@
 </head>
 <body>
   <div class="hero">
-    <div class="logo">📖</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="logo">📖</div><button class="gear" id="gear" type="button" aria-label="Tetapan" aria-expanded="false" onclick="toggleSettings()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div>
     <h1>Penjana Soalan KKQ</h1>
-    <p class="tagline">Developed by ustazashraf@2026</p>
   </div>
 
   <div class="wrap">
@@ -99,7 +108,7 @@
       <div class="card" id="bidang">Memuatkan...</div>
     </div>
 
-    <div class="sec" style="display:none">
+    <div class="sec" id="settings" hidden>
       <h2>Tetapan</h2>
       <div class="card">
         <div class="sw"><div><b>Kacau pilihan A–D</b><small>Susunan jawapan diubah rawak</small></div>
@@ -122,6 +131,8 @@
       <div id="links"></div>
     </div>
   </div>
+
+  <div class="foot">Developed by ustazashraf@2026</div>
 
 <script>
   const LV = [1, 2, 3];
@@ -152,6 +163,11 @@
         <div class="bar"><i class="${low?'low':''}" style="width:${pct}%"></i></div>
         <span class="nv ${low?'low':''}">${PER}/${a}</span></div>`;
     }).join('') + `<div class="note">Kiri: soalan dijana. Kanan: soalan berjawapan tersedia.</div>`;
+  }
+  function toggleSettings(){
+    const s = document.getElementById('settings');
+    s.hidden = !s.hidden;
+    document.getElementById('gear').setAttribute('aria-expanded', String(!s.hidden));
   }
   function toggle(l){
     if(sel.has(l)){ if(sel.size===1) return; sel.delete(l);} else sel.add(l);
